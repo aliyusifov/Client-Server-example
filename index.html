@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<body>
+<style>
+
+*
+ html,body {
+    height: 100%;
+}
+
+ body {
+    padding: 5px;
+}
+
+.ejdaha {
+    display: grid;
+    grid-template-columns: 70px 70px 70px 70px;
+    grid-template-rows: 70px 70px 70px;
+    position: relative;
+}
+
+.ejdaha div {
+    text-align: center;
+    border-radius: 10%;
+    margin: 5px;
+    color: #ffffff;
+    background-image: linear-gradient(#ff0000, #0000ff);
+}
+
+  
+
+
+</style>
+
+<div class="ejdaha"></div>
+
+<button onclick="ejdaha()">ejdaha</button>
+
+<script>
+
+var buttons = ["Ziya", "ELnur", "Ali Y", "Vusal" ];
+
+console.log(buttons, buttons.length, typeof buttons);
+
+
+
+
+
+    
+const ejdaha = () => {
+
+    var ejdaha = document.querySelector('.ejdaha')
+
+    debugger;
+    
+    if(ejdaha.childElementCount >= 12 ){
+        while (ejdaha.firstChild) {
+            ejdaha.removeChild(ejdaha.firstChild);
+        }
+    }
+    //var abu_petya = document.querySelectorAll('.ejdaha')[1]
+    //var abu_petya = document.getElementsByClassName('ejdaha')[0]
+
+    for(var index = buttons.length - 1; index >= 0  ; index--){
+        
+        var dragon = document.createElement('div');
+        dragon.innerHTML = buttons[index];
+
+        ejdaha.appendChild(dragon);
+
+    }
+
+} 
+
+      
+  
+  
+  </script>
+
+</body>
+</html>

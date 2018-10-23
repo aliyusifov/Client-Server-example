@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<body>
+<style>
+
+*
+ html,body {
+    height: 100%;
+}
+
+ body {
+    padding: 5px;
+}
+
+.ejdaha {
+    display: grid;
+    grid-template-columns: 70px 70px 70px 70px;
+    grid-template-rows: 70px 70px 70px;
+    position: relative;
+}
+
+.ejdaha div {
+    text-align: center;
+    border-radius: 10%;
+    margin: 5px;
+    color: #ffffff;
+    background-image: linear-gradient(#ff0000, #0000ff);
+}
+
+
+</style>
+
+<div class="ejdaha"></div>
+
+<button onclick="ejdaha()">ejdaha</button>
+
+<script>
+    
+const ejdaha = () => {
+
+    var ejdaha = document.querySelector('.ejdaha')
+
+    debugger;
+
+    if(ejdaha.childElementCount >= 12 ){
+        while (ejdaha.firstChild) {
+            ejdaha.removeChild(ejdaha.firstChild);
+        }
+    }
+
+    fetch('http://localhost:8080')
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (ejdahalar) {
+
+            console.log(ejdahalar);
+
+            ejdahalar.forEach((qanadliEjdaha, index) => {
+                var dragon = document.createElement('div');
+                //var drName = document.createElement('p');
+                //var drImage = document.createElement('img');
+        
+                dragon.innerHTML = "<p>" + qanadliEjdaha.name + "</p><img src='img/" + qanadliEjdaha.image +"'></img>"
+                ejdaha.appendChild(dragon);
+
+            });
+        })
+        .then(function () {
+            console.log("Ziya ejdahadi.");
+        })
+        .then(function () {
+            console.log("Elnur da ejdahadi indeed.");
+        });
+        
+
+} 
+
+      
+  
+  
+  </script>
+
+</body>
+</html>
